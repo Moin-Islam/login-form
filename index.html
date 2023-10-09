@@ -13,20 +13,33 @@
     <div class="title"> <span>Login Form</span></div>
     <form action="#">
       <div class="row">
-        <input type="text" placeholder="Username">
+        <input type="text" id="name" placeholder="Username">
+      </div>
+      <div class="usernameError">
+        <p>Username must be 6 character</p>
       </div>
       <div class="row">
-        <input type="text" placeholder="Email">
+        <input type="text" id="email" placeholder="Email">
+      </div>
+      <div class="emailError">
+        <p>Invalid email address</p>
       </div>
       <div class="row">
-        <input type="password" placeholder="Password">
+        <input type="password" id="pass" placeholder="Password">
+      </div>
+      <div class="passwordError">
+        <p>Password cann't be same as user name</p>
+      </div>
+      <div class="passwordError1">
+        <p>Password must be at least 6 character</p>
       </div>
       <div class="row button">
-        <input type="submit" value="Login">
+        <input type="submit" onclick="Validation()" value="Login">
       </div>
        
     </form>
   </div>
+  <script src="script.js"></script>
 </body>
 
 </html>
