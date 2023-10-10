@@ -1,43 +1,57 @@
-function Validation () {
-    let userName = document.querySelector("#name");
-    let name = userName.value;
-    let userEmail = document.querySelector("#email");
-    let email = userEmail.value;
-    let userPassword = document.querySelector("#pass");
-    let password = userPassword.value;
+function nameValidation() {
+  let userName = document.querySelector("#name").value;
 
-    if(name.length < 6) {
-        document.querySelector(".usernameError").style.display = "block";
-        setTimeout(() => {
-            document.querySelector(".usernameError").style.display = "none";
-          }, 3000)
-    }
-    else {
-        console.log(name);
-    }
-    if(email.includes('@')) {
-        console.log (email);
-      
-    }else {
-        document.querySelector(".emailError").style.display = "block";
-        setTimeout(() => {
-            document.querySelector(".emailError").style.display = "none";
-          }, 3000)
-    }
-    if (name == password) {
-        document.querySelector(".passwordError").style.display = "block";
-        setTimeout(() => {
-            document.querySelector(".passwordError").style.display = "none";
-          }, 3000)
-    } else if (password.length <6)
+  if (userName.length < 6) {
+    document.querySelector(".usernameError").style.display = "block";
+  } else {
+    document.querySelector(".usernameError").style.display = "none";
+    console.log(userName);
+  }
+}
+
+function emailValidation() {
+  let userEmail = document.querySelector("#email").value;
+
+  if (!userEmail.includes("@")) {
+    document.querySelector(".emailError").style.display = "block";
+    console.log(userEmail);
+  } else {
+    document.querySelector(".emailError").style.display = "none";
+  }
+}
+
+function passwordValidation() {
+  let userPassword = document.querySelector("#pass").value;
+  let name = document.querySelector("#name").value;
+  console.log(userPassword);
+
+  if (userPassword == "") {
+    document.querySelector(".passwordError2").style.display = "block";
+  } else if (userPassword.length < 6) {
+    document.querySelector(".passwordError1").style.display = "block";
+  } else if (userPassword == name)
+  {
+    document.querySelector(".passwordError").style.display = "block";
+  } else {
+    console.log(userPassword);
+    document.querySelector(".passwordError").style.display = "none";
+    document.querySelector(".passwordError1").style.display = "none";
+    document.querySelector(".passwordError2").style.display = "none";
+  }
+  
+}
+
+function confirmPassValidation() {
+    let password = document.querySelector("#pass").value;
+    let confirmPassword = document.querySelector("#confirm-pass").value;
+
+    if (confirmPassword != password) {
+        document.querySelector(".confirmPasswordError").style.display = "block";
+    }else 
     {
-        document.querySelector(".passwordError1").style.display = "block";
-        setTimeout(() => {
-            document.querySelector(".passwordError1").style.display = "none";
-          }, 3000)
-    }
-    else {
+        document.querySelector(".confirmPasswordError").style.display = "none";
+        console.log(confirmPassword);
         console.log(password);
     }
-    
+
 }
